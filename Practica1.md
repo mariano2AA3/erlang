@@ -147,7 +147,7 @@ f(), Cuadrado=fun(A) -> element(1,A) == square  end.
 
 **lists:map(Fun, List1) -> List2**
 
-** En este caso Fun es cualquier función con un argumento. Lo que hace map es aplicar Fun a todos los elementos de List1. El resultado es una nueva lista List2. Ejemplo:**
+**En este caso Fun es cualquier función con un argumento. Lo que hace map es aplicar Fun a todos los elementos de List1. El resultado es una nueva lista List2. Ejemplo:**
 
 **Inc=fun(X) -> X+1 end.**
 
