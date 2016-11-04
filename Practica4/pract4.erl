@@ -5,8 +5,8 @@
 -export([poker/1, edad/1, vecinos/2, habitantes/2, incluye/2, mapSafe/2]).
 
 
-% 2
 
+% Ejercicio 2
 
 contar(X, Y) -> contar(X, Y, 0).
 
@@ -23,25 +23,29 @@ poker(#mano{cartas=[C|Cn]}) ->
 
  end.
 
+ 
 
-% 3
+% Ejercicio 3
 
 edad(#persona{edad=E}) -> E.
 
 
-% 4
+
+% Ejercicio 4
 
 vecinos( #persona{calle=C1, ciudad=P1}, #persona{calle=C2,ciudad=P2} ) -> C1=:=C2 andalso P1=:=P2 .
 
 
-% 5
+
+% Ejercicio 5
 
 vive(#persona{ciudad=C},Ciudad) -> C =:= Ciudad.
 
 habitantes(Ps, C) -> [X || X <-Ps, fun vive/2(X,C)].
 
 
-% 6
+
+% Ejercicio 6
 
 mismaPersona(D1, #persona{dni=D2}) -> D1 =:=D2.
 
@@ -53,8 +57,9 @@ incluye(Per, Ps) ->
  end.
 
 
-% 7
 
+% Ejercicio 7
+ 
 mapSafe(F,[]) -> [];
 mapSafe(F,[X|Xn]) ->
 try F(X) of

@@ -1,3 +1,5 @@
+% Ejercicio 1
+
 -record(carta,{valor,palo}).
 
 -record(mano,{cartas=[]}).
