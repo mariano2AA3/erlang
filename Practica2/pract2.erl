@@ -1,6 +1,9 @@
 -module(pract2).
 -export([impares/1, ack/2, mismoConjunto/2, normal/1, interseccion/2, esta/2,nNodos/1, mapTree/2, sonMultiplos/2, h/1]). % /1 indica aridad 1
 
+
+% Ejercicio 1
+
 impares([]) -> [];
 impares(L) -> imparesAux(L, 1).
 
@@ -11,12 +14,18 @@ imparesAux([X|Xs], N) ->
  end.
 
 
+ 
+% Ejercicio 2
 
 ack(M,N) when M==0 -> N+1;
 ack(M,N) when M>0, N==0 -> ack(M-1,1);
 ack(M,N) when M>0, N>0  -> ack(M-1, ack(M,N-1)).
 
 
+
+% Ejercicio 3
+
+% Ejercicio 3.1
 
 mismoConjunto(X,[]) -> true;
 mismoConjunto([],Y) -> true;
@@ -31,6 +40,7 @@ contenido(X,[]) -> false;
 contenido(X,Y) -> lists:member(X,Y). 
 
 
+% Ejercicio 3.2
 
 normal([]) -> [];
 normal([X|Xs]) ->
@@ -40,13 +50,20 @@ normal([X|Xs]) ->
 end .
 
 
+% Ejercicio 3.3
+
 interseccion([],_) -> [];
 interseccion([X|Xs],Y) ->
  case contenido(X,Y) of
  	true -> [X|interseccion(Xs,Y)];
  	false -> interseccion(Xs,Y)
 end.
- 
+
+
+
+% Ejercicio 4
+
+% Ejercicio 4.1
 
 esta(E,{}) -> false;
 esta(E,{Elem, A1, A2}) ->
@@ -56,15 +73,22 @@ esta(E,{Elem, A1, A2}) ->
  end.
 
 
- nNodos({}) -> 0;
- nNodos({Elem,A1,A2}) -> 1+nNodos(A1)+nNodos(A2).
-
+% Ejercicio 4.2
  
- mapTree(F, {}) -> {};
- mapTree(F,{Elem,A1,A2}) -> {F(Elem), mapTree(F,A1), mapTree(F,A2)}.
+nNodos({}) -> 0;
+nNodos({Elem,A1,A2}) -> 1+nNodos(A1)+nNodos(A2).
 
 
- sonMultiplos(X,Y) ->
+% Ejercicio 4.3
+
+mapTree(F, {}) -> {};
+mapTree(F,{Elem,A1,A2}) -> {F(Elem), mapTree(F,A1), mapTree(F,A2)}.
+
+
+
+% Ejercicio 5
+
+sonMultiplos(X,Y) ->
  if 
  	X==0 -> true;
  	Y==0 -> true;
@@ -74,6 +98,9 @@ esta(E,{Elem, A1, A2}) ->
  end.
 
 
+ 
+% Ejercicio 6
+ 
 h(X) ->
  F = fun
  	(N) when X==0 -> true;
